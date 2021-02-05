@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { IonItemDivider } from '@ionic/angular';
 import { IMovie } from '../share/interfaces';
 import { Storage } from '@ionic/storage';
 
@@ -7,7 +6,6 @@ import { Storage } from '@ionic/storage';
   providedIn: 'root'
 })
 export class MoviedbService {
-  [x: string]: any;
 
   auxMovie: IMovie;
   auxMovieList: IMovie[] = [];
@@ -17,8 +15,12 @@ export class MoviedbService {
   // Store a value
   setItem(reference: string, value: IMovie) {
     this.storage.set(reference, {
-      id: value.id, name: value.name, genre: value.genre,
-      date: value.date, cover: value.cover, description: value.description
+      id: value.id, 
+      name: value.name, 
+      genre: value.genre,
+      date: value.date, 
+      cover: value.cover, 
+      description: value.description
     })
     .then(
       (data) => console.log('Stored first item!', data),
